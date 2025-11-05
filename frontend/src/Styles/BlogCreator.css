@@ -1,0 +1,140 @@
+/* ========================================
+   BLOG CREATOR MAIN CONTAINER (Glass UI)
+======================================== */
+.blog-creator-container {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  /* backdrop-filter: blur(12px); */
+  border-radius: 18px;
+  padding: 28px;
+  max-width: 900px;
+  margin: 20px auto;
+  box-shadow: 0 0 22px rgba(0, 0, 0, 0.55);
+  font-family: "Segoe UI", sans-serif;
+  color: #e2e8f0;
+}
+
+/* TITLE */
+.blog-creator-title {
+  color: #ebeeff;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+/* ========================================
+   INPUTS
+======================================== */
+.bc-input,
+.bc-textarea,
+.bc-select {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.1);
+  color: #e8eaff;
+  outline: none;
+  font-size: 15px;
+  /* backdrop-filter: blur(6px); */
+  transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+.bc-input{
+  margin-top: 10px;
+}
+input[type="file" i] {
+  border-radius: 20px;
+}
+
+.bc-input:focus,
+.bc-textarea:focus,
+.bc-select:focus {
+  border-color: #6a9cfd;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.bc-textarea {
+  resize: vertical;
+}
+
+/* BUTTONS */
+.bc-btn-primary,
+.bc-btn-success {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  transition: transform 0.12s ease, box-shadow 0.2s ease;
+}
+
+.bc-btn-primary {
+  background: linear-gradient(90deg, #3a6eff, #5a8dff);
+}
+
+.bc-btn-success {
+  background: linear-gradient(90deg, #24c85a, #39e773);
+}
+
+.bc-btn-primary:hover,
+.bc-btn-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* DIVIDER */
+.bc-divider {
+  margin: 30px 0;
+  border: none;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* ========================================
+   DRAG AND DROP LIST WRAPPER
+======================================== */
+.bc-section-list {
+  background: transparent;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  position: relative; /* ✅ Needed to stop jumping */
+}
+
+/* INDIVIDUAL DRAG ITEM CARD */
+.bc-section-item {
+  background: rgba(18, 18, 28, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  margin-bottom: 14px;
+  padding: 18px;
+  width: 100%;
+  position: relative;
+  box-sizing: border-box; /* ✅ Prevent width change on drag */
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+/* ✅ WHEN DRAGGING - highlight card */
+.bc-section-item.dragging {
+  background: rgba(130, 160, 255, 0.32);
+  border-color: rgba(130, 160, 255, 0.6);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.45);
+}
+
+/* THUMBNAIL PREVIEW */
+.bc-thumbnail-preview img {
+  max-width: 100%;
+  border-radius: 12px;
+  margin-top: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* ADD NEW SECTION BUTTON GROUP */
+.bc-add-section {
+  display: flex;
+  gap: 12px;
+  margin-top: 22px;
+}

@@ -1,0 +1,21 @@
+.footer {
+   background-color: rgb(18, 8, 37);
+  color: white;
+  text-align: center;
+  padding: 5px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  bottom:0px;
+}
+
+.socials a {
+  color: white;
+  margin: 0 8px;
+  transition: 0.3s ease;
+}
+
+.socials a:hover {
+  color: #9fc9ff;
+}

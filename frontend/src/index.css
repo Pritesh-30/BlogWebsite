@@ -1,0 +1,15 @@
+.App {
+  display: flex; /* Enable Flexbox */
+  flex-direction: column; /* Stack children vertically */
+  min-height: 100vh; /* Ensure the container covers at least the viewport height */
+}
+
+.App > .footer {
+  /* This ensures the footer sticks to the bottom. 
+     If the content (Routes) grows, the footer is pushed down.
+     If the content is short, this pushes it to the bottom of 100vh. */
+  margin-top: auto; 
+}
+.logo{
+  border-radius: 100%;
+}

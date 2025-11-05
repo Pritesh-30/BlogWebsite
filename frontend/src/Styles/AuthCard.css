@@ -1,0 +1,171 @@
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  font-family: "Poppins", sans-serif;
+  color: white;
+}
+
+.auth-card {
+  width: 380px;
+  background: rgba(30, 30, 50, 0.9);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  transition: transform 0.5s ease;
+  position: relative;
+}
+
+.toggle-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.toggle-buttons button {
+  background: transparent;
+  border: 2px solid #6366f1;
+  color: white;
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.toggle-buttons button.active,
+.toggle-buttons button:hover {
+  background: #6366f1;
+}
+
+.forms {
+  position: relative;
+  height: 320px;
+  overflow: hidden;
+}
+
+.form {
+  position: absolute;
+  width: 100%;
+  transition: all 0.6s ease;
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.form.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.form.hidden {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.input-box {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+.input-box .icon {
+  margin-right: 10px;
+  color: #818cf8;
+}
+
+.input-box input {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+  flex: 1;
+  font-size: 15px;
+}
+
+.submit-btn {
+  width: 100%;
+  background: #6366f1;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: #4f46e5;
+}
+
+.switch-text {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #cbd5e1;
+}
+
+.switch-text span {
+  color: #818cf8;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.slide-right {
+  animation: slideRight 0.6s forwards;
+}
+
+.slide-left {
+  animation: slideLeft 0.6s forwards;
+}
+.message {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 8px 12px;
+  border-radius: 8px;
+  width: 80%;
+  margin-inline: auto;
+}
+
+.message.success {
+  background-color: #e3fcef;
+  color: #1e7b34;
+  border: 1px solid #b8e2c5;
+}
+
+.message.error {
+  background-color: #fde8e8;
+  color: #b91c1c;
+  border: 1px solid #f5b7b7;
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(-10px);
+  }
+  to {
+    transform: translateX(10px);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(10px);
+  }
+  to {
+    transform: translateX(-10px);
+  }
+}
+.input-box input:-webkit-autofill {
+  -webkit-text-fill-color: white !important;
+  transition: background-color 9999s ease-in-out 0s; /* Prevent flash */
+}
+
