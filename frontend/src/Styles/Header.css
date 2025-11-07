@@ -9,7 +9,7 @@
 .header {
   position: sticky;
   top: 0;
-  background-color: #0b1121;
+  background: linear-gradient(to right, #251248, #08072a, #000000);
   box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
   backdrop-filter: blur(10px);
   display: flex;
@@ -19,7 +19,7 @@
   padding-right: 20px;
   z-index: 1000;
   border-bottom: 1px solid rgba(59, 130, 246, 0.3);
-  border-top: 10px solid rgb(1, 1, 59);
+  border-top: 10px solid rgb(0, 0, 0);
   height: 64px;
 }
 
@@ -29,6 +29,7 @@
   width: auto;
   border-radius: 100%;
   border: 2.5px solid white;
+  box-shadow: 0 0 0 5px rgb(0, 0, 0); 
   cursor: pointer;
   object-fit: contain;
   transform: scale(1.1);

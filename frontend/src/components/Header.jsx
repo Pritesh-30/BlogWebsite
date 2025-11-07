@@ -95,6 +95,9 @@ export default function Header() {
 
         {isLoggedIn ? (
           <div className="user-section">
+            <button className="auth-btn create-btn" onClick={() => navigate("/myblogs")}>
+            My Blogs
+          </button>
             <span className="welcome-text">Hi, {username || "User"}</span>
             <button onClick={handleLogout} className="auth-btn logout-btn">Logout</button>
           </div>
