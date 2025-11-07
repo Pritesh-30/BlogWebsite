@@ -12,6 +12,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import AuthCard from "./components/AuthCard";
 import StarSky from "react-star-sky";
+import EditBlog from "./pages/EditBlog";
+import MyBlogs from "./pages/MyBlogs";
 
 function App() {
   return (
@@ -37,6 +39,8 @@ function App() {
           <Route path="/create" element={<CreateBlog />} />
           <Route path="/login" element={<AuthCard />} />
           <Route path="/blogs/:id" element={<BlogDetails />} />
+          <Route path="/blogs/edit/:id" element={<EditBlog />} />
+          <Route path="/myblogs" element={<MyBlogs />} />
         </Routes>
 
         <Footer />
