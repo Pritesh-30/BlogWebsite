@@ -1,0 +1,69 @@
+@import "./BlogList.css"; /* Import the base BlogList styles */
+@import "./BlogList.css"; /* reuse core styles */
+
+/* --- Custom Footer for MyBlogs --- */
+.blog-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1rem;
+  margin-top: auto;
+}
+
+/* Button group (edit/delete) */
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+/* Buttons Base */
+.edit-btn,
+.delete-btn {
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: #e0e0e0;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.25s ease;
+}
+
+/* Hover - Edit (Blue Glow) */
+.edit-btn:hover {
+  background: linear-gradient(90deg, #3b82f6, #6a9cfd);
+  color: white;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.7);
+}
+
+/* Hover - Delete (Red Glow) */
+.delete-btn:hover {
+  background: linear-gradient(90deg, #ef4444, #dc2626);
+  color: white;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.7);
+}
+
+/* Subtle fade-in on hover */
+.blog-card:hover .button-group {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.button-group {
+  opacity: 0.9;
+  transform: translateY(2px);
+  transition: all 0.3s ease;
+}
+
+.no-blogs-text {
+  color: #bbb;
+  text-align: center;
+  font-size: 1.1rem;
+  margin-top: 30px;
+}
