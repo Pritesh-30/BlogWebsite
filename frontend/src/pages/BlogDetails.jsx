@@ -6,6 +6,10 @@ import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 export default function BlogDetails() {
   const { id } = useParams();
   const [blog, setBlog] = useState(null);
+   const [loading, setLoading] = useState(true);
+  const [comments, setComments] = useState([]);
+  const [text, setText] = useState("");
+  const [posting, setPosting] = useState(false);
 
   useEffect(() => {
     fetch(`http://localhost:5000/api/blogs/${id}`)
@@ -14,12 +18,56 @@ export default function BlogDetails() {
       .catch((err) => console.error("Error fetching blog:", err));
   }, [id]);
 
+  useEffect(() => {
+    fetch(`http://localhost:5000/api/comments/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        // if backend returns {comments: [...]}, handle both cases
+        setComments(Array.isArray(data) ? data : data.comments || []);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching comments:", err);
+        setLoading(false);
+      });
+  }, [id]);
+
   if (!blog)
     return (
       <p style={{ textAlign: "center", marginTop: "3rem", color: "#ccc" }}>
         Loading...
       </p>
     );
+    const postComment = async (e) => {
+    e.preventDefault();
+    if (!text.trim()) return;
+
+    setPosting(true);
+    try {
+      const res = await fetch(`http://localhost:5000/api/comments/${id}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username: localStorage.getItem("username") || "Guest",
+          content: text,
+        }),
+      });
+
+      const data = await res.json();
+      if (data?.comment) {
+        setComments([data.comment, ...comments]);
+        setText("");
+      } else {
+        console.error("Unexpected response:", data);
+      }
+    } catch (error) {
+      console.error("Error posting comment:", error);
+    }
+    setPosting(false);
+  };
+
+  // ✅ Reset text area
+  const resetComment = () => setText("");
 
   return (
     <div
@@ -247,6 +295,9 @@ export default function BlogDetails() {
 
         {/* Comment section */}
         <textarea
+         value={text}
+          onChange={(e) => setText(e.target.value)}
+          required
           placeholder="What are your thoughts..?"
           style={{
             width: "85%",
@@ -262,6 +313,7 @@ export default function BlogDetails() {
 
         <div style={{ display: "flex", justifyContent: "flex-end", gap: "10px", marginTop: "10px" }}>
           <button
+          onClick={resetComment}
             style={{
               background: "#444",
               color: "white",
@@ -276,6 +328,7 @@ export default function BlogDetails() {
           </button>
 
           <button
+          onClick={postComment}
             style={{
               background: "#6a9cfd",
               color: "white",
@@ -286,9 +339,60 @@ export default function BlogDetails() {
               marginRight: "60px"
             }}
           >
-            Post
+             {posting ? "Posting..." : "Post"}
           </button>
         </div>
+        {/* Comments List */}
+      <div
+        style={{
+          width: "85%",
+          margin: "2rem auto",
+          textAlign: "left",
+        }}
+      >
+        <h3 style={{ color: "#fff" }}>Comments</h3>
+
+        {loading ? (
+          <p style={{ color: "#aaa" }}>Loading comments...</p>
+        ) : comments.length === 0 ? (
+          <p style={{ color: "#888" }}>No comments yet — be the first!</p>
+        ) : (
+          comments.map((c) => (
+            <div
+              key={c._id}
+              style={{
+                background: "#0f0f1a",
+                border: "1px solid #222",
+                padding: "12px",
+                borderRadius: "10px",
+                marginBottom: "10px",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  gap: "10px",
+                }}
+              >
+                <strong style={{ color: "#e6e6ff" }}>{c.username}</strong>
+                <small style={{ color: "#9a9ab5" }}>
+                  {new Date(c.createdAt || Date.now()).toLocaleString()}
+                </small>
+              </div>
+              <p
+                style={{
+                  color: "#ddd",
+                  marginTop: "6px",
+                  whiteSpace: "pre-wrap",
+                }}
+              >
+                {c.content}
+              </p>
+            </div>
+          ))
+        )}
+      </div>
       </div>
     </div>
   );
