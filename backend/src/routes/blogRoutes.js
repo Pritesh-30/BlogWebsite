@@ -4,30 +4,29 @@ import {
   getBlogById,
   createBlog,
   getPendingBlogs,
-  verifyBlog
+  verifyBlog,
+  editBlog,
+  getUserBlogs
 } from "../controllers/blogController.js";
 import { protect, adminOnly, isLoggedIn } from "../middleware/authMiddleware.js";
+import { get } from "mongoose";
 
 const router = express.Router();
-
-/* ===========================
-   📂 PUBLIC ROUTES
-=========================== */
-
 // Get all approved blogs
 router.get("/", getAllBlogs);
 
-// Get a single blog by ID (must come after admin routes)
-router.get("/:id", getBlogById);
-
-
-// Create a new blog (user must be logged in)
+// Create a new blog
 router.post("/", protect, isLoggedIn, createBlog);
 
-// Get all pending blogs (admin only)
-router.get("/admin/pending", protect, adminOnly, getPendingBlogs);
+/* ✅ Must come before `/:id` */
+router.get("/myblogs", protect, getUserBlogs);
 
-// Approve (verify) a pending blog (admin only)
+/* Admin Routes */
+router.get("/admin/pending", protect, adminOnly, getPendingBlogs);
 router.patch("/admin/:id/verify", protect, adminOnly, verifyBlog);
+
+/* Edit or View Blog by ID (comes last) */
+router.put("/:id", protect, isLoggedIn, editBlog);
+router.get("/:id", getBlogById);
 
 export default router;
