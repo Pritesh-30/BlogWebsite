@@ -1,4 +1,6 @@
-# Blog Website
+# Dev-Diaries
+<img width="1024" height="490" alt="image" src="https://github.com/user-attachments/assets/b66430a8-b378-4b62-b583-f23b6ee2cd1e" />
+
 
 A full-stack blog platform built with the MERN stack (MongoDB, Express.js, React, Node.js) featuring rich content creation, user authentication, and admin approval workflows.
 
