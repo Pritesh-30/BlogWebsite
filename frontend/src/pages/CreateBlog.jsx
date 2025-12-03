@@ -57,15 +57,15 @@ const handlePublishBlog = async () => {
     return;
   }
   const uploadToCloudinary = async (file) => {
+//   console.log("Cloudinary URL:", process.env.REACT_APP_CLOUDINARY_URL);
+// console.log("Upload Preset:", process.env.REACT_APP_BLOG_UPLOAD_PRESET);
   const formData = new FormData();
   formData.append("file", file);
-  formData.append("upload_preset", process.env.BLOG_UPLOAD_PRESET); // 🔹 your unsigned preset
-
-  const res = await fetch(process.env.CLOUDINARY_URL, {
+  formData.append("upload_preset", process.env.REACT_APP_BLOG_UPLOAD_PRESET); // 🔹 your unsigned preset
+  const res = await fetch(process.env.REACT_APP_CLOUDINARY_URL, {
     method: "POST",
     body: formData,
   });
-
   const data = await res.json();
   if (!res.ok) throw new Error(data.error?.message || "Upload failed");
   return data.secure_url; // ✅ Cloudinary hosted image URL

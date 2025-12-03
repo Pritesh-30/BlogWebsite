@@ -2,8 +2,8 @@
    BLOG CREATOR MAIN CONTAINER (Glass UI)
 ======================================== */
 .blog-creator-container {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--bg-card); /* Use theme variable */
+  border: 1px solid var(--border-light); /* Use theme variable */
   /* backdrop-filter: blur(12px); */
   border-radius: 18px;
   padding: 28px;
@@ -11,12 +11,12 @@
   margin: 20px auto;
   box-shadow: 0 0 22px rgba(0, 0, 0, 0.55);
   font-family: "Segoe UI", sans-serif;
-  color: #e2e8f0;
+  color: var(--text-primary); /* Use theme variable */
 }
 
 /* TITLE */
 .blog-creator-title {
-  color: #ebeeff;
+  color: var(--text-primary); /* Use theme variable */
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 20px;
@@ -33,17 +33,19 @@
   padding: 12px 14px;
   margin-bottom: 14px;
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.1);
-  color: #e8eaff;
+  border: 1px solid var(--border-light); /* Use theme variable */
+  background: var(--bg-input); /* Use theme variable */
+  color: var(--text-primary); /* Use theme variable */
   outline: none;
   font-size: 15px;
   /* backdrop-filter: blur(6px); */
   transition: border-color 0.25s ease, background-color 0.25s ease;
 }
+
 .bc-input{
   margin-top: 10px;
 }
+
 input[type="file" i] {
   border-radius: 20px;
 }
@@ -51,8 +53,8 @@ input[type="file" i] {
 .bc-input:focus,
 .bc-textarea:focus,
 .bc-select:focus {
-  border-color: #6a9cfd;
-  background: rgba(255, 255, 255, 0.18);
+  border-color: var(--primary-blue); /* Use theme variable */
+  background: rgba(255, 255, 255, 0.18); /* Keep this as is for now */
 }
 
 .bc-textarea {
@@ -90,7 +92,7 @@ input[type="file" i] {
   margin: 30px 0;
   border: none;
   height: 1px;
-  background: rgba(255, 255, 255, 0.12);
+  background: var(--border-light); /* Use theme variable */
 }
 
 /* ========================================
@@ -100,14 +102,14 @@ input[type="file" i] {
   background: transparent;
   padding: 10px;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--select-color); /* Use theme variable */
   position: relative; /* ✅ Needed to stop jumping */
 }
 
 /* INDIVIDUAL DRAG ITEM CARD */
 .bc-section-item {
-  background: rgba(18, 18, 28, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--bg-card); /* Use theme variable */
+  border: 1px solid var(--border-light); /* Use theme variable */
   border-radius: 12px;
   margin-bottom: 14px;
   padding: 18px;
@@ -129,7 +131,7 @@ input[type="file" i] {
   max-width: 100%;
   border-radius: 12px;
   margin-top: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid var(--border-light); /* Use theme variable */
 }
 
 /* ADD NEW SECTION BUTTON GROUP */
@@ -137,4 +139,8 @@ input[type="file" i] {
   display: flex;
   gap: 12px;
   margin-top: 22px;
+}
+.bc-select option {
+  background-color: var(--select-color); /* same as panel bg */
+  color: var(--text-primary);            /* visible text */
 }

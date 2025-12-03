@@ -10,6 +10,61 @@
      If the content is short, this pushes it to the bottom of 100vh. */
   margin-top: auto; 
 }
+
 .logo{
   border-radius: 100%;
+}
+
+:root[data-theme="dark"] {
+  --header-bg: linear-gradient(to right, #251248, #08072a, #000000);
+  --footer-bg: linear-gradient(to left, #40207d, #0b094c, #000000);
+  --bg-primary: #000000;
+  --star-color: #ffffff;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0d0;
+  --bg-card: rgba(18, 18, 28, 0.75);
+  --bg-input: rgba(255,255,255,0.12);
+  --border-light: rgba(255,255,255,0.12);
+  --primary-blue: #6a9cfd;
+  --blog-card: 0 6px 20px rgba(242, 231, 231, 0.45);
+  --blog-detail: #0f0f1f;
+  --blog-detail-text: #d0d0e0;
+  --tags-bg:#6a9cfd;
+   --welcome-text: #0057ed;
+   --thanks-text: #ffffff;
+   --border-color: #ffffff;
+   --select-color: #000000;
+   --hover: #ffffff;
+}
+:root[data-theme="light"] {
+  --header-bg: linear-gradient(to right, #6635ee, #564094, #d750f9);
+  --footer-bg: linear-gradient(to left, #b69dfd, #cdbbfd, #e4daff);
+
+  --bg-primary: linear-gradient(to right bottom, #33aeb0, #079fb9, #00bdff, #00a0ff, #237cff, #6e65f2, #9946dc, #b800be, #b700ab, #b40199, #af0b89, #a8167a);
+  --bg-card: #ede9fe;    /* lighter purple card background */
+  --bg-input: rgba(199, 191, 230, 0.25);
+
+  --text-primary: #4c1d95; /* dark purple text */
+  --text-secondary: #6d28d9; /* medium purple text */
+
+  --primary-blue: #7e22ce; /* purple instead of blue */
+  --star-color: #c084fc; /* light purple stars */
+  --tags-bg: #1a008f;
+
+  --border-light: rgba(139, 92, 246, 0.25);
+  --blog-card: 0 8px 26px rgba(139, 92, 246, 0.15);
+
+  --blog-detail: #f5f3ff;
+  --blog-detail-text: #5b21b6;
+  --welcome-text: #000000;
+  --thanks-text: #000000;
+  --border-color: #000000;
+   --select-color: #ffffff;
+   --hover: #000000;
+}
+
+
+body {
+  background: var(--bg-primary); 
+  color: var(--text-primary);
 }

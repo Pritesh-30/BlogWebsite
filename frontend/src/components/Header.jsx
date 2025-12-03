@@ -3,12 +3,14 @@ import { Moon, Sun, ChevronDown } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import "../Styles/Header.css";
 import { toast } from "react-toastify";
-import logo from "../Assets/image.png"; // ✅ Add your logo image here
+import logo from "../Assets/image.png"; 
+import { useTheme } from "../context/ThemeContext";
+// ✅ Add your logo image here
 
 export default function Header() {
   const navigate = useNavigate();
+  const { theme, toggleTheme } = useTheme();
 
-  const [isDark, setIsDark] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
 
@@ -30,12 +32,6 @@ export default function Header() {
     setUsername(storedUser || "");
   }, []);
 
-  const toggleTheme = () => {
-    const newTheme = !isDark;
-    setIsDark(newTheme);
-    document.body.classList.toggle("dark-mode", newTheme);
-  };
-
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
@@ -56,14 +52,16 @@ export default function Header() {
           onClick={() => navigate("/")}
         />
 
-        <button onClick={() => navigate("/")} className="nav-btn">All Posts</button>
-        
+        <button onClick={() => navigate("/")} className="nav-btn">
+          All Posts
+        </button>
 
         {/* Dropdown */}
         <div className="dropdown-container posts-dropdown">
           <button className="nav-btn domain-btn">
-            <span style={{ display: 'flex', alignItems: 'center' }}>
-              <span className="posts-icon">⋮≡</span> Posts <ChevronDown size={12} style={{ marginLeft: '4px' }}/>
+            <span style={{ display: "flex", alignItems: "center" }}>
+              <span className="posts-icon">⋮≡</span> Posts{" "}
+              <ChevronDown size={12} style={{ marginLeft: "4px" }} />
             </span>
           </button>
 
@@ -83,26 +81,32 @@ export default function Header() {
 
       {/* ---- Right ---- */}
       <div className="header-right">
-        {/* <button onClick={toggleTheme} className="toggle-btn">
-          {isDark ? <Sun size={18} /> : <Moon size={18} />}
-        </button> */}
+        <button onClick={toggleTheme} className="toggle-btn">
+          {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+        </button>
 
-       
-          <button className="auth-btn create-btn" onClick={handleCreate}>
-            Create Your Blog
-          </button>
-        
+        <button className="auth-btn create-btn" onClick={handleCreate}>
+          Create Your Blog
+        </button>
 
         {isLoggedIn ? (
           <div className="user-section">
-            <button className="auth-btn create-btn" onClick={() => navigate("/myblogs")}>
-            My Blogs
-          </button>
+            <button
+              className="auth-btn create-btn"
+              onClick={() => navigate("/myblogs")}
+            >
+              My Blogs
+            </button>
             <span className="welcome-text">Hi, {username || "User"}</span>
-            <button onClick={handleLogout} className="auth-btn logout-btn">Logout</button>
+            <button onClick={handleLogout} className="auth-btn logout-btn">
+              Logout
+            </button>
           </div>
         ) : (
-          <button className="auth-btn login-btn" onClick={() => navigate("/login")}>
+          <button
+            className="auth-btn login-btn"
+            onClick={() => navigate("/login")}
+          >
             Login
           </button>
         )}

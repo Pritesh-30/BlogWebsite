@@ -4,6 +4,7 @@
   color: white;
   min-height: 100vh;
   padding-bottom: 3rem;
+  z-index: -2;
 }
 
 /* Header Section */
@@ -38,17 +39,18 @@
   max-width: 1300px;
   margin: 0 auto;
 }
+
 /* Blog Card Styles */
 .blog-card {
-  background-color: transparent;
+  background-color: var(--bg-card);
   border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(242, 231, 231, 0.45);
-  color: white;
+  box-shadow: var(--blog-card);
+  color: var(--text-primary);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 480px; /* or 450px depending on your card’s content */
-height: auto; /* ensures equal height if needed */
+  min-height: 480px; /* or 450px depending on your card's content */
+  height: auto; /* ensures equal height if needed */
   padding: 1.8rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -67,7 +69,7 @@ height: auto; /* ensures equal height if needed */
 }
 
 .blog-tag {
-  background-color: #6a9cfd;
+  background-color: var(--tags-bg);
   color: white;
   padding: 0.35rem 0.8rem;
   border-radius: 6px;
@@ -81,14 +83,14 @@ height: auto; /* ensures equal height if needed */
 .blog-title {
   font-size: 1.7rem;
   font-weight: 700;
-  color: #e0e0e0;
+  color: var(--text-primary);
   margin-bottom: 0.6rem;
   line-height: 1.2;
 }
 
 /* Description */
 .blog-description {
-  color: #b0b0d0;
+  color: var(--text-secondary);
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 1.2rem;
@@ -127,14 +129,16 @@ height: auto; /* ensures equal height if needed */
   color: #b0b0d0;
   font-size: 0.9rem;
 }
+
 /* ✅ Thumbnail container (maintains consistent height) */
 .thumbnail-container {
   width: 100%;
   min-height: 180px;
-  height: 180px;                /* adjust height if needed */
+  height: 180px; /* adjust height if needed */
   border-radius: 12px;
   overflow: hidden;
   margin-bottom: 1rem;
+  border: 1px solid var(--border-color);
 }
 
 /* ✅ Image should auto-fit without distortion */
@@ -142,9 +146,10 @@ height: auto; /* ensures equal height if needed */
   min-height: 180px;
   width: 100%;
   height: 100%;
-  object-fit: cover;          /* maintain aspect ratio, crop excess */
+  object-fit: cover; /* maintain aspect ratio, crop excess */
   display: block;
-  aspect-ratio: 16 / 9; 
+  aspect-ratio: 16 / 9;
+  
 }
 
 .blog-footer {
@@ -169,6 +174,7 @@ height: auto; /* ensures equal height if needed */
   transform: scale(1.05);
   cursor: default;
 }
+
 /* --- Code Unscripted Header Style --- */
 .site-name {
   text-align: center;

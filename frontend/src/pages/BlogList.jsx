@@ -19,13 +19,13 @@ export default function BlogList() {
   return (
     <div className="blog-page">
       {/* 🌐 Website Name & Tagline */}
-      <div className="blog-header">
+      {/* <div className="blog-header">
   <h1 className="site-name">
     <span className="code-text">CODE</span>{" "}
     <span className="unscripted-text">UNSCRIPTED</span>
-  </h1>
+  </h1> */}
   {/* <p className="site-tagline">Innovate. Automate. Create. 🚀</p> */}
-</div>
+{/* </div> */}
 
 
       {/* 🧱 Blog Cards */}

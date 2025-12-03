@@ -11,29 +11,24 @@ import BlogDetails from "./pages/BlogDetails";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import AuthCard from "./components/AuthCard";
-import StarSky from "react-star-sky";
 import EditBlog from "./pages/EditBlog";
 import MyBlogs from "./pages/MyBlogs";
+import { useTheme } from "./context/ThemeContext";
+import Starfield from "./components/Starfield";
+
 
 function App() {
+  const { theme, colors } = useTheme();
   return (
     <Router>
       {/* 🌌 Background Layer */}
-      <div className="starry-container">
-        <StarSky
-          className="starry-background"
-          starColor="#ffffff"
-          backgroundColor="#0e071c"
-          starSize={1.5}
-          numStars={500}
-          isTwinkling={true}
-        />
-      </div>
+<Starfield />   {/* ⭐ No crashes, smooth star background */}
+
 
       {/* 🌍 Foreground Content */}
       <div className="App">
         <Header />
-
+        
         <Routes>
           <Route path="/" element={<BlogList />} />
           <Route path="/create" element={<CreateBlog />} />

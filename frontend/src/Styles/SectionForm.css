@@ -1,6 +1,6 @@
 .section-form-wrapper {
   background: transparent;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-light); /* Use theme variable */
   border-radius: 10px;
   padding: 20px;
   margin-bottom: 20px;
@@ -20,7 +20,7 @@
 }
 
 .sf-header strong {
-  color: white;
+  color: var(--text-primary); /* Use theme variable */
   font-size: 16px;
   text-transform: capitalize;
 }
@@ -40,16 +40,16 @@
   margin-top: 6px;
   margin-bottom: 12px;
   border-radius: 6px;
-  border: 1px solid #ccc;
-  color: white;
+  border: 1px solid var(--border-light); /* Use theme variable */
+  color: var(--text-primary); /* Use theme variable */
   font-size: 14px;
   outline: none;
-  background-color: transparent;
+  background-color: var(--bg-input); /* Use theme variable */
 }
 
 .sf-input:focus,
 .sf-textarea:focus {
-  border-color: #007bff;
+  border-color: var(--primary-blue); /* Use theme variable */
 }
 
 .sf-textarea.sf-code {
@@ -60,7 +60,7 @@
 
 .sf-list-section h4,
 .sf-code-section h4 {
-  color: #333;
+  color: var(--text-primary); /* Use theme variable */
   margin-bottom: 8px;
 }
 
@@ -80,7 +80,7 @@
 }
 
 .sf-btn-add {
-  background: #007bff;
+  background: var(--primary-blue); /* Use theme variable */
   color: white;
   border: none;
   border-radius: 6px;
@@ -89,7 +89,7 @@
 }
 
 .sf-btn-add:hover {
-  background: #0056b3;
+  background: var(--hover-blue); /* Use theme variable */
 }
 
 .sf-image-preview {
@@ -100,14 +100,14 @@
 .sf-image-preview img {
   max-width: 100%;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-light); /* Use theme variable */
 }
 
 /* Styling the select dropdown */
 select {
-  background-color: #2a2a38;   /* dark background */
-  color: #fff;                 /* text color */
-  border: 1px solid #444;
+  background-color: var(--bg-input); /* Use theme variable */
+  color: var(--text-primary); /* Use theme variable */
+  border: 1px solid var(--border-light); /* Use theme variable */
   padding: 8px;
   border-radius: 6px;
   outline: none;
@@ -115,13 +115,13 @@ select {
 
 /* Styling the dropdown options */
 select option {
-  background: #2a2a38;   /* dark background */
-  color: #fff;           /* text color */
+  background: var(--bg-input); /* Use theme variable */
+  color: var(--text-primary); /* Use theme variable */
   vertical-align: middle; /* align text vertically */
   border-radius: 50px;
 }
 
 /* Highlight effect when hovering options (not supported in all browsers) */
 select option:hover {
-  background: #3b3b4d;
+  background: var(--bg-card); /* Use theme variable */
 }

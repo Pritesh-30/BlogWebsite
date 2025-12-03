@@ -1,7 +1,7 @@
 /* Primary Button Color Definition */
 :root {
   --primary-blue: #3b82f6;
-  --hover-blue: #2563eb;
+  --hover: #000000;
   --secondary-bg: rgba(255, 255, 255, 0.1);
 }
 
@@ -9,7 +9,7 @@
 .header {
   position: sticky;
   top: 0;
-  background: linear-gradient(to right, #251248, #08072a, #000000);
+  background: var(--header-bg);
   box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
   backdrop-filter: blur(10px);
   display: flex;
@@ -35,6 +35,7 @@
   transform: scale(1.1);
   transition: transform 0.3s ease, filter 0.3s ease;
 }
+
 .site-logo:hover {
   transform: scale(1.2);
   filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.8));
@@ -68,7 +69,7 @@
 
 .nav-btn:hover {
   background: var(--secondary-bg);
-  color: var(--primary-blue);
+  color: var(--hover);
 }
 
 /* Auth Buttons (Login/Create/Logout) */
@@ -139,7 +140,7 @@
 
 /* Style the Welcome Text (Email) */
 .welcome-text {
-  color: #9ca3af;
+  color: var(--welcome-text);
   font-size: 14px;
   font-weight: 400;
 }
@@ -156,7 +157,7 @@
 }
 
 /* Styling for the 'Posts' button text/icon */
-.posts-dropdown .domain-btn {
+.dropdown-container .domain-btn {
   background: transparent;
   border: none;
   font-size: 16px;
@@ -164,10 +165,12 @@
   display: flex;
   align-items: center;
   gap: 4px;
+  color: white;
 }
 
-.posts-dropdown .domain-btn:hover {
+.dropdown-container .domain-btn:hover {
   background: transparent;
+  color: var(--hover);
 }
 
 /* Icon styling */
@@ -175,7 +178,7 @@
   font-size: 20px;
   line-height: 1;
   margin-right: 4px;
-  color: var(--primary-blue);
+  color: var(--hover);
 }
 
 /* Dropdown Menu Styles */

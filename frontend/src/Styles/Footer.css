@@ -1,23 +1,22 @@
 .footer {
-   background: linear-gradient(to left, #40207d, #0b094c, #000000);
-  color: white;
+  background: var(--footer-bg);
+  color: var(--text-primary); /* Use theme variable */
   box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
   text-align: center;
   padding: 5px 0;
   display: flex;
   justify-content: center;
   align-items: center;
-
   gap: 20px;
   bottom:0px;
 }
 
 .socials a {
-  color: white;
+  color: var(--text-primary); /* Use theme variable */
   margin: 0 8px;
   transition: 0.3s ease;
 }
 
 .socials a:hover {
-  color: #9fc9ff;
+  color: var(--primary-blue); /* Use theme variable */
 }

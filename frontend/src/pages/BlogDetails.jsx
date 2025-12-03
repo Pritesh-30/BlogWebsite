@@ -78,7 +78,7 @@ export default function BlogDetails() {
         padding: "2rem",
         lineHeight: "1.8",
         color: "#d0d0e0",
-        backgroundColor: "#0f0f1f",
+        backgroundColor: "var(--blog-detail)",
         borderRadius: "12px",
         boxShadow: "0 8px 30px rgba(0,0,0,0.5)",
       }}
@@ -92,6 +92,7 @@ export default function BlogDetails() {
             borderRadius: "10px",
             marginBottom: "1.2rem",
             maxHeight: "280px",
+           
           }}
         >
           <img
@@ -105,6 +106,7 @@ export default function BlogDetails() {
               borderRadius: "12px",
               display: "block",
               margin: "0 auto",
+               border: "1px solid var(--border-color)",
             }}
           />
         </div>
@@ -124,7 +126,7 @@ export default function BlogDetails() {
           <span
             key={index}
             style={{
-              backgroundColor: "#6a9cfd",
+              backgroundColor: "var(--tags-bg)",
               color: "white",
               padding: "6px 14px",
               borderRadius: "50px",
@@ -142,7 +144,7 @@ export default function BlogDetails() {
         style={{
           fontSize: "2.4rem",
           fontWeight: "800",
-          color: "#ffffff",
+          color: " var(--text-primary)",
           textAlign: "center",
           marginBottom: "1.2rem",
         }}
@@ -175,7 +177,7 @@ export default function BlogDetails() {
                   style={{
                     marginBottom: "1.2rem",
                     fontSize: "1.15rem",
-                    color: "#d0d0e0",
+                    color: " var(--text-secondary)",
                     fontWeight: "450",
                   }}
                 >
@@ -191,7 +193,7 @@ export default function BlogDetails() {
                     marginTop: "2rem",
                     marginBottom: "0.8rem",
                     fontSize: section.level === 3 ? "1.4rem" : "1.6rem",
-                    color: "#ccc",
+                    color: " var(--text-secondary)",
                     fontWeight: "600",
                   }}
                 >
@@ -286,7 +288,7 @@ export default function BlogDetails() {
 
       {/* --- Footer Thank You Section --- */}
       <div style={{ textAlign: "center", marginTop: "4rem" }}>
-        <h2 style={{ fontSize: "1.8rem", color: "#fff" }}>Thanks for reading!!!</h2>
+        <h2 style={{ fontSize: "1.8rem", color: "var(--thanks-text)" }}>Thanks for reading!!!</h2>
         <p style={{ fontSize: "1.1rem", marginTop: "0.3rem", color: "#a2a2ff" }}>
           ~ {blog.author?.username || "Anonymous"}
         </p>
@@ -350,7 +352,7 @@ export default function BlogDetails() {
           textAlign: "left",
         }}
       >
-        <h3 style={{ color: "#fff" }}>Comments</h3>
+        <h3 style={{ color: "var(--text-primary)" }}>Comments</h3>
 
         {loading ? (
           <p style={{ color: "#aaa" }}>Loading comments...</p>

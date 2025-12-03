@@ -3,14 +3,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: transparent;
+  background-color: var(--bg-primary); /* Use theme variable */
   font-family: "Poppins", sans-serif;
-  color: white;
+  color: var(--text-primary); /* Use theme variable */
 }
 
 .auth-card {
   width: 380px;
-  background: rgba(30, 30, 50, 0.9);
+  background: var(--bg-card); /* Use theme variable */
   border-radius: 20px;
   padding: 30px;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
@@ -27,8 +27,8 @@
 
 .toggle-buttons button {
   background: transparent;
-  border: 2px solid #6366f1;
-  color: white;
+  border: 2px solid var(--primary-blue); /* Use theme variable */
+  color: var(--text-primary); /* Use theme variable */
   font-weight: 600;
   padding: 8px 20px;
   border-radius: 8px;
@@ -38,7 +38,7 @@
 
 .toggle-buttons button.active,
 .toggle-buttons button:hover {
-  background: #6366f1;
+  background: var(--primary-blue); /* Use theme variable */
 }
 
 .forms {
@@ -68,7 +68,7 @@
 .input-box {
   display: flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--bg-input); /* Use theme variable */
   padding: 10px 15px;
   border-radius: 10px;
   margin: 10px 0;
@@ -76,21 +76,25 @@
 
 .input-box .icon {
   margin-right: 10px;
-  color: #818cf8;
+  color: var(--primary-blue); /* Use theme variable */
 }
 
 .input-box input {
   border: none;
   outline: none;
   background: transparent;
-  color: white;
+  color: var(--text-primary); /* Use theme variable */
   flex: 1;
   font-size: 15px;
 }
 
+.input-box input::placeholder {
+  color: var(--text-secondary); /* Use theme variable */
+}
+
 .submit-btn {
   width: 100%;
-  background: #6366f1;
+  background: var(--primary-blue); /* Use theme variable */
   color: white;
   border: none;
   padding: 10px;
@@ -102,18 +106,18 @@
 }
 
 .submit-btn:hover {
-  background: #4f46e5;
+  background: var(--hover-blue); /* Use theme variable */
 }
 
 .switch-text {
   text-align: center;
   margin-top: 15px;
   font-size: 14px;
-  color: #cbd5e1;
+  color: var(--text-secondary); /* Use theme variable */
 }
 
 .switch-text span {
-  color: #818cf8;
+  color: var(--primary-blue); /* Use theme variable */
   cursor: pointer;
   font-weight: 500;
 }
@@ -125,6 +129,7 @@
 .slide-left {
   animation: slideLeft 0.6s forwards;
 }
+
 .message {
   margin-top: 12px;
   font-size: 0.9rem;
@@ -164,8 +169,8 @@
     transform: translateX(-10px);
   }
 }
+
 .input-box input:-webkit-autofill {
-  -webkit-text-fill-color: white !important;
+  -webkit-text-fill-color: var(--text-primary) !important; /* Use theme variable */
   transition: background-color 9999s ease-in-out 0s; /* Prevent flash */
 }
-

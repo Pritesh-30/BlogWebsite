@@ -1,18 +1,46 @@
+/* Light theme variables
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --star-color: #000000;
+  --star-bg: #f8f9fa;
+} */
+
+/* Dark theme variables */
+/* body.dark-mode {
+  --bg-color: #0e071c;
+  --text-color: #ffffff;
+  --star-color: #ffffff;
+  --star-bg: #0e071c;
+} */
+
+/* Light theme gradient background */
+:root[data-theme="light"] {
+  --app-bg: linear-gradient(to right bottom, #43ecef, #00d6fd, #00bdff, #00a0ff, #237cff, #6e65f2, #9946dc, #b800be, #b700ab, #b40199, #af0b89, #a8167a);
+}
+
+/* Dark theme background */
+:root[data-theme="dark"] {
+  --app-bg: #000000;
+}
+
 /* 🌌 The container that holds the StarSky */
 .starry-container {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1; /* Ensures it's always behind everything */
+  width: 100vw;  /* FULL WIDTH */
+  height: 100vh; /* FULL HEIGHT */
+  z-index: -1;
+  pointer-events: none;
   overflow: hidden;
+  background: var(--app-bg);
 }
 
-/* The actual StarSky component (optional — sometimes not needed) */
 .starry-background {
   width: 100%;
   height: 100%;
+  display: block;
 }
 
 /* Main app content stays above */
@@ -25,7 +53,6 @@
 /* Body should match theme */
 body {
   margin: 0;
-  background-color: #0e071c;
   color: #fff;
   font-family: 'Poppins', sans-serif;
 }
