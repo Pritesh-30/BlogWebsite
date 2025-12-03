@@ -9,8 +9,15 @@ import commentRoutes from "./routes/commentRoutes.js";
 dotenv.config();
 connectDB();
 
+const allowedOrigins = [
+  "http://localhost:3000", // local frontend
+  "https://blog-website-one-henna.vercel.app" // your deployed frontend
+];
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true,
+}));
 app.use(express.json());
 
 // Routes
