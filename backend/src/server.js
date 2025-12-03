@@ -11,7 +11,7 @@ connectDB();
 
 const allowedOrigins = [
   "http://localhost:3000", // local frontend
-  "https://blogwebsite-h63y.onrender.com/" // your deployed frontend
+  "https://blogwebsite-h63y.onrender.com" // your deployed frontend
 ];
 const app = express();
 app.use(cors({
