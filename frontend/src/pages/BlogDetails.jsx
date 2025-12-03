@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import {servers} from "../environment";
 
 export default function BlogDetails() {
   const { id } = useParams();
@@ -12,14 +13,14 @@ export default function BlogDetails() {
   const [posting, setPosting] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/blogs/${id}`)
+    fetch(`${servers}/api/blogs/${id}`)
       .then((res) => res.json())
       .then((data) => setBlog(data))
       .catch((err) => console.error("Error fetching blog:", err));
   }, [id]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/comments/${id}`)
+    fetch(`${servers}/api/comments/${id}`)
       .then((res) => res.json())
       .then((data) => {
         // if backend returns {comments: [...]}, handle both cases
@@ -44,7 +45,7 @@ export default function BlogDetails() {
 
     setPosting(true);
     try {
-      const res = await fetch(`http://localhost:5000/api/comments/${id}`, {
+      const res = await fetch(`${servers}/api/comments/${id}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

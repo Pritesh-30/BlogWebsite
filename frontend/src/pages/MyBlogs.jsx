@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Pencil, Trash2, ArrowRight } from "lucide-react";
 import "../Styles/MyBlogs.css";
+import {servers} from "../environment";
 
 export default function MyBlogs() {
   const [blogs, setBlogs] = useState([]);
@@ -13,7 +14,7 @@ export default function MyBlogs() {
   useEffect(() => {
     const fetchUserBlogs = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/blogs/myblogs", {
+        const res = await fetch(`${servers}/api/blogs/myblogs`, {
           headers: {
             "Content-Type": "application/json",
             ...(token ? { Authorization: `Bearer ${token}` } : {}),
@@ -40,7 +41,7 @@ export default function MyBlogs() {
     if (!window.confirm("Are you sure you want to delete this blog?")) return;
 
     try {
-      const res = await fetch(`http://localhost:5000/api/blogs/${id}`, {
+      const res = await fetch(`${servers}/api/blogs/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

@@ -5,6 +5,7 @@ import SectionPreview from '../components/SectionPreview';
 import '../Styles/CreateBlog.css';
 import { toast } from "react-toastify";
 import { useNavigate } from 'react-router-dom';
+import {servers} from "../environment";
 
 
  // ✅ Keep this
@@ -103,7 +104,7 @@ const handlePublishBlog = async () => {
       dateCreated: new Date().toISOString(),
     };
 
-    const response = await fetch("http://localhost:5000/api/blogs", {
+    const response = await fetch(`${servers}/api/blogs`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

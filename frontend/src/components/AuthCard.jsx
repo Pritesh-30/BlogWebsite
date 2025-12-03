@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaUser, FaLock, FaEnvelope } from "react-icons/fa";
 import "../Styles/AuthCard.css";
 import { useNavigate } from "react-router-dom";
+import {servers} from "../environment";
 
 export default function AuthCard() {
     // const navigate = useNavigate();
@@ -23,8 +24,8 @@ export default function AuthCard() {
 
     try {
       const endpoint = isRegister
-        ? "http://localhost:5000/api/auth/register"
-        : "http://localhost:5000/api/auth/login";
+        ? `${servers}/api/auth/register`
+        : `${servers}/api/auth/login`;
 
       const res = await fetch(endpoint, {
         method: "POST",

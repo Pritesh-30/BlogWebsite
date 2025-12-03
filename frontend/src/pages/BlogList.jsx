@@ -4,13 +4,15 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import "../Styles/BlogList.css";
+import {servers} from "../environment";
 
 export default function BlogList() {
   const [blogs, setBlogs] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/blogs")
+    console.log("Fetching blogs from server:", servers);
+    fetch(`${servers}/api/blogs`)
       .then((res) => res.json())
       .then((data) => setBlogs(data))
       .catch((err) => console.error("Error fetching blogs:", err));

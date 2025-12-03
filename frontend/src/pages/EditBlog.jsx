@@ -4,6 +4,7 @@ import SectionPreview from "../components/SectionPreview";
 import "../Styles/CreateBlog.css";
 import { toast } from "react-toastify";
 import { useNavigate, useParams } from "react-router-dom";
+import {servers} from "../environment";
 
 const initialBlogState = {
   title: "",
@@ -27,7 +28,7 @@ const EditBlog = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/blogs/${id}`);
+        const response = await fetch(`${servers}/api/blogs/${id}`);
         if (!response.ok) throw new Error("Failed to fetch blog");
         const data = await response.json();
 
@@ -77,7 +78,7 @@ const EditBlog = () => {
     setSubmitting(true);
 
     try {
-      const response = await fetch(`http://localhost:5000/api/blogs/${id}`, {
+      const response = await fetch(`${servers}/api/blogs/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
